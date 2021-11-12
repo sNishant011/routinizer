@@ -1,0 +1,8 @@
+backports.entry-points-selectable==1.1.1
+distlib==0.3.3
+et-xmlfile==1.1.0
+filelock==3.3.2
+openpyxl==3.0.9
+platformdirs==2.4.0
+six==1.16.0
+virtualenv==20.10.0
