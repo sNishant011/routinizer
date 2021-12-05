@@ -3,7 +3,7 @@
 import os
 from openpyxl import load_workbook, Workbook
 
-all_routine = load_workbook('A21 Level 5 BCS Schedule.xlsx')
+all_routine = load_workbook('test.xlsx')
 # getting active worksheet (first worksheet)
 active_sheet = all_routine.active
 all_groups = []
@@ -12,7 +12,11 @@ for i in range(1, 12):
 	all_groups.append(f"L5CG{i}")
 
 # making folder for storing individual routine
-os.mkdir("individual_routines")
+try:
+	os.mkdir("individual_routines")
+	print("New directory called individual_routines created.")
+except:
+	print("Directory already exist continuing further.")
 
 for group in all_groups:
 	# creating a new workbook for each group
