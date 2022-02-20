@@ -3,15 +3,16 @@
 import os
 from openpyxl import load_workbook, Workbook
 
-all_routine = load_workbook('test.xlsx')
+all_routine = load_workbook('routine.xlsx')
 # getting active worksheet (first worksheet)
 active_sheet = all_routine.active
 all_groups = []
 # creating a list of all groups
-for i in range(1, 12):
+for i in range(1, 15):
 	all_groups.append(f"L5CG{i}")
 
 # making folder for storing individual routine
+# exception handling
 try:
 	os.mkdir("individual_routines")
 	print("New directory called individual_routines created.")
@@ -34,17 +35,13 @@ for group in all_groups:
 	
 	# appending routine heading to the first row of the sheet
 	ws.append(routine_heading)
-
+	# optimizing for current routine
+	gc = group + "+"
+	if group[4:] in ["4", "8", "11", "14"]:
+		gc = group
 	# first two rows of the original routine contains unneccessary data
 	for row in active_sheet.iter_rows(3, active_sheet.max_row):
-
-		# to mitigate error bug to matching of group name while using in operator
-		# L5CG1 in L5CG10 and L5CG11 will
-		if group == 'L5CG1':
-			class_grouped = group+'+'
-		else:
-			class_grouped = group
-		if (group == row[7].value) or (class_grouped in row[7].value):
+		if (group == row[9].value) or ((gc[4:]) in row[9].value[4:]):
 
 			# row that will contain all the information about the class
 			new_row = []
@@ -55,8 +52,8 @@ for group in all_groups:
 
 			# appending each day routine to the new excel file
 			ws.append(new_row)
-
 			# saving file inside individual_routines folder
 			wb.save(f"individual_routines/{group}_routine_3rdSem.xlsx")
 	wb.close()
 all_routine.close()
+print("You can find all routines in individual_routines folder.")
