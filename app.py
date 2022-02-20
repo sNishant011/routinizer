@@ -8,7 +8,7 @@ all_routine = load_workbook('routine.xlsx')
 active_sheet = all_routine.active
 all_groups = []
 # creating a list of all groups
-for i in range(1, 15):
+for i in range(1,15):
 	all_groups.append(f"L5CG{i}")
 
 # making folder for storing individual routine
@@ -38,11 +38,12 @@ for group in all_groups:
 	# optimizing for current routine
 	gc = group + "+"
 	if group[4:] in ["4", "8", "11", "14"]:
-		gc = group
+		gc = "L5CG+" + group[4:] + ")"
+	elif group[4:] in ["2", "3", "6", "10", "13"]:
+		gc = "L5CG+" + group[4:] + "+"
 	# first two rows of the original routine contains unneccessary data
 	for row in active_sheet.iter_rows(3, active_sheet.max_row):
 		if (group == row[9].value) or ((gc[4:]) in row[9].value[4:]):
-
 			# row that will contain all the information about the class
 			new_row = []
 			for i in range(active_sheet.max_column):
