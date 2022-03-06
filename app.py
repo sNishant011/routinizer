@@ -42,8 +42,9 @@ for group in all_groups:
 	elif group[4:] in ["2", "3", "6", "10", "13"]:
 		gc = "L5CG+" + group[4:] + "+"
 	# first two rows of the original routine contains unneccessary data
-	for row in active_sheet.iter_rows(3, active_sheet.max_row):
-		if (group == row[9].value) or ((gc[4:]) in row[9].value[4:]):
+	for row in active_sheet.iter_rows(4, active_sheet.max_row):
+
+		if (group == row[7].value) or ((gc[4:]) in row[7].value[4:]):
 			# row that will contain all the information about the class
 			new_row = []
 			for i in range(active_sheet.max_column):
