@@ -3,13 +3,13 @@
 import os
 from openpyxl import load_workbook, Workbook
 
-all_routine = load_workbook('routine.xlsx')
+all_routine = load_workbook('routine1.xlsx')
 # getting active worksheet (first worksheet)
 active_sheet = all_routine.active
 all_groups = []
 # creating a list of all groups
 for i in range(1,15):
-	all_groups.append(f"L5CG{i}")
+	all_groups.append(f"L6CG{i}")
 
 # making folder for storing individual routine
 # exception handling
@@ -27,7 +27,6 @@ for group in all_groups:
 	ws.title = group + "_routine_3rdSem"
 
 	routine_heading = []
-
 	for cell in active_sheet[2]:
 
 		# getting value of each cell of second row ( 'Day', 'Time'..)
@@ -44,7 +43,7 @@ for group in all_groups:
 	# first two rows of the original routine contains unneccessary data
 	for row in active_sheet.iter_rows(4, active_sheet.max_row):
 
-		if (group == row[7].value) or ((gc[4:]) in row[7].value[4:]):
+		if (group == row[3].value) or ((gc[4:]) in row[3].value[4:]):
 			# row that will contain all the information about the class
 			new_row = []
 			for i in range(active_sheet.max_column):
