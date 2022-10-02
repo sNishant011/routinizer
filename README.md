@@ -1,30 +1,41 @@
 # Routinizer using python
 
-- Generates individual routine for each groups from file containing routine of all groups
-- routine is saved inside individual_routines folder
+- Generates individual routines for each group from a single file containing routines of all groups
+- Newly generated group routines are saved in the individual_routines folder
 
 # Requirements
 
-- python 3.9 (tested)
+- python 3.9 and above (tested)
 - openpyxl
 
-# Installing
+# Installation
 
 - Install python from [python's official website](https://www.python.org/)
 - Install openpyxl using pip
 
 ```
-pip install openpyxl
+pip3 install openpyxl
 ```
 
-# Running Program
+# Running the Program
 
-- See if routine.xlsx exist in the same directory
+- Ensure routine.xlsx exists in the routinizer directory 
+- Run program using the following commands 
 
-### Linux
+### Linux 
 
-- python3 app.py
+```
+ python3 app.py
+```
+
+### Mac 
+
+```
+python3 app.py
+```
 
 ### Windows
 
-- python app.py
+```
+python app.py
+```
