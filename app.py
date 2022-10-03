@@ -4,7 +4,7 @@ import os
 
 from openpyxl import Workbook, load_workbook
 
-all_routine = load_workbook("routine1.xlsx")
+all_routine = load_workbook("routine.xlsx")
 # getting active worksheet (first worksheet)
 active_sheet = all_routine.active
 all_groups = []
@@ -58,4 +58,4 @@ for group in all_groups:
             wb.save(f"individual_routines/{group}_routine_3rdSem.xlsx")
     wb.close()
 all_routine.close()
-print("You can find all routines in individual_routines folder.")
+print("You can find all routines in the individual_routines folder.")
